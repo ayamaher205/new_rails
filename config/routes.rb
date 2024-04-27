@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :post_emojis
+  resources :emojis
   resources :posts
   resources :authors
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
