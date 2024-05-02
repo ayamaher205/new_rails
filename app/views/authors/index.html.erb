@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Listing authors</h4>
+  </div>
+  <%= link_to 'Create Author', new_author_path %>
+  <div class="p-3 mb-2 bg-light text-dark">
+    <span class="text-info font-weight-bold">Welcome! </span>
+    Create Author
+  </div>
+<% if @authors.present? %>
+    <div class="row justify-content-center">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col" colspan="3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @authors.each do |author| %>
+            <tr>
+              <td><%= author.name %></td>
+              <td><%= author.email %></td>
+              <td><%= author.phone_number %></td>
+              <td><%= author.DOB %></td>
+              <td><%= link_to 'Show', author_path(author.id), class: 'btn btn-success' %> || <%= link_to 'Update', edit_author_path(author.id), class: 'btn btn-secondary'%> ||<%= button_to "Delete", @author, method: :delete, class: 'btn btn-danger' %>  </td>              
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="p-3 mb-2 bg-light text-dark">
+      <span class="text-info font-weight-bold">Welcome! </span>
+      Create your first post
+    </div>
+  <% end %>
+  </div>
