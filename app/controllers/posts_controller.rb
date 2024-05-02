@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
     def post_form
         puts 'hello'
     end
@@ -29,10 +29,10 @@ class PostController < ApplicationController
         end
     end
     
-    def delete
+    def destroy
         @post = Post.find(params[:id])
         @post.destroy
-        redirect_to posts_url
+        redirect_to authors_path
     end
     
     def get_post
